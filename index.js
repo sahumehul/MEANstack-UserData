@@ -1,9 +1,11 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const app = express();
-const router = require("./routes/user")
+const router = require("./routes/user");
+const cors =require("cors")
 require("dotenv").config()
-app.use(express.json())
+app.use(express.json());
+app.use(cors());
 
 const connectDB = async()=>{
   await mongoose.connect(process.env.MONGOURL).then(()=>{
