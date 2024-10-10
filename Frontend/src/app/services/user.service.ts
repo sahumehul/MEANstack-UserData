@@ -13,4 +13,16 @@ export class UserService {
   getusers(){
     return this.httpclient.get<{data :User[]}>(this.apiUrl + "/getusers")
   }
+  getUser(id :string){
+    return this.httpclient.get<{data :User}>(this.apiUrl + "/getuser/" + id)
+  }
+  addusers(model : User){
+    return this.httpclient.post(this.apiUrl +"/adduser" , model)
+  }
+  updateUser(id:string,model:User){
+    return this.httpclient.put(this.apiUrl + "/updateuser/" + id,model)
+  }
+  deleteUser(id:string){
+    return this.httpclient.delete(this.apiUrl + "/deleteuser/" + id)
+  }
 }

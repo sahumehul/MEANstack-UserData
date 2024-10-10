@@ -1,31 +1,42 @@
 <div class="shadow border">
+  @if(editUserId){
+    <div class="text-xl font-semibold text-center p-4">Update User</div>
+  }@else {
     <div class="text-xl font-semibold text-center p-4">Add User</div>
-    <form>
+  }
+    
+    <form [formGroup]="userform">
         <div class="flex flex-wrap p-4">
                 <mat-form-field class="w-full">
                   <mat-label>Name</mat-label>
-                  <input type="text" matInput placeholder="Ex. John doe">
+                  <input type="text" matInput placeholder="Ex. John doe" formControlName="name">
                 </mat-form-field>
                 <mat-form-field class="w-full">
                     <mat-label>Email</mat-label>
-                    <input type="email" matInput placeholder="Ex. John@gmail.com">
+                    <input type="email" matInput placeholder="Ex. John@gmail.com" formControlName="email">
                   </mat-form-field>
                   <mat-form-field class="w-full">
                     <mat-label>Age</mat-label>
-                    <input type="number" matInput placeholder="Ex. 26">
+                    <input type="number" matInput placeholder="Ex. 26" formControlName="age">
                   </mat-form-field>
                   <mat-form-field class="w-full">
                     <mat-label>Address</mat-label>
-                    <input type="text" matInput placeholder="Ex. india">
+                    <input type="text" matInput placeholder="Ex. india" formControlName="address">
                   </mat-form-field>
                   <mat-form-field class="w-full">
                     <mat-label>Password</mat-label>
-                    <input type="text" matInput placeholder="Ex. hbhjb@34">
+                    <input type="text" matInput placeholder="Ex. hbhjb@34" formControlName="password">
                   </mat-form-field>
               
         </div>
         <div class="flex justify-center p-4">
-            <button  mat-raised-button  color="primary">Add user</button>
+          @if(editUserId){
+            <button  mat-raised-button  color="primary" (click)="updateUser()">Update user</button>
+
+          }@else {
+
+            <button  mat-raised-button  color="primary" (click)="addUser()">Add user</button>
+          }
           </div>
     </form>
 </div>

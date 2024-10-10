@@ -22,4 +22,13 @@ export class UsersComponent implements OnInit {
         
       })
   }
+
+  deleteuser(id:string){
+    this.userService.deleteUser(id).subscribe((result) => {
+      console.log(result);  // Check if the result shows a successful deletion response
+      alert("User deleted successfully");
+    
+      this.users = this.users.filter((u) => u._id !== id);  // Note the !== operator
+    });
+  }
 }

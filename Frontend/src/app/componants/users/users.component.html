@@ -21,8 +21,8 @@
                 <td>{{user.age}}</td>
                 <td>{{user.address}}</td>
                 <td>{{user.email}}</td>
-                <td><button mat-raised-button color="accent">Edit</button></td>
-                <td><button mat-raised-button color="warn">Delete</button></td>
+                <td><button mat-raised-button color="accent" [routerLink]="['/users/update/',user._id]">Edit</button></td>
+                <td><button mat-raised-button color="warn" (click)="deleteuser(user._id!)">Delete</button></td>
                     </tr>
                 }
             
